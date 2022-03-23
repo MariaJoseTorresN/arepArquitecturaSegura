@@ -2,18 +2,14 @@ package edu.escuelaing.arep;
 
 import static spark.Spark.*;
 
-/**
- * Hello world!
- *
- */
-public class App {
+public class BackEnd {
     public static void main( String[] args )
     {   
         //API: secure(keystoreFilePath, keystorePassword, truststoreFilePath,truststorePassword);
         secure(getKeyStore(), "123456", getTrustStore(), "123456");
         port(getPort());
         get("/hello", (req, res) ->{
-            return "Hello World";
+            return "Hello Moto";
         });
     }
 
@@ -28,7 +24,7 @@ public class App {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 5000; //returns default port if heroku-port isn't set (i.e. on localhost)
+        return 5100; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
 
     static String getKeyStore(){
